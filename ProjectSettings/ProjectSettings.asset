@@ -871,11 +871,11 @@ PlayerSettings:
   captureStartupLogs: {}
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
-  cloudProjectId: 44676d78-5fbe-4240-85c8-5f9530d048d3
+  cloudProjectId: c46a2758-5c38-44a5-99ea-e6a4927086a2
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
   projectName: 2D Multiolayer
-  organizationId: unity_d27882b16c5fd53fb266
+  organizationId: unity_2c1b73882be632a1b874
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}
