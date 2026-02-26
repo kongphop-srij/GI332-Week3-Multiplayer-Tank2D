@@ -38,9 +38,10 @@ public class NetworkClient : IDisposable
 
     public void Dispose()
     {
-        if (networkManager != null)
+        if(networkManager != null)
         {
             networkManager.OnClientDisconnectCallback -= OnClientDisconnect;
         }
     }
 }
+ 

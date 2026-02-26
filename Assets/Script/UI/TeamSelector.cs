@@ -19,14 +19,14 @@ public class TeamSelector : MonoBehaviour
 
     private void OnValidate()
     {
-        for (int i = 0; i < selectionButtons.Length; i++)
+        for(int i = 0; i < selectionButtons.Length; i++)
         {
             selectionButtons[i].color = (Color)colorLookup.GetTeamColor(i);
-        }
+        }   
 
-        foreach (SelectionButton selection in selectionButtons)
+        foreach(SelectionButton selection in selectionButtons)
         {
-            selection.teamButton.image.color = selection.color;
+            selection.teamButton.image.color = selection.color;  
         }
     }
     private void Start()
@@ -39,7 +39,7 @@ public class TeamSelector : MonoBehaviour
     {
         foreach (SelectionButton selection in selectionButtons)
         {
-            selection.selectionBox.SetActive(false);
+            selection.selectionBox.SetActive(false);            
         }
 
         foreach (SpriteRenderer sprite in playerSprites)
@@ -60,3 +60,4 @@ public class TeamSelector : MonoBehaviour
         PlayerPrefs.SetInt(PlayerTeamKey, teamIndex);
     }
 }
+ 

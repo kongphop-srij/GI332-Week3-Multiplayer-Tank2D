@@ -74,6 +74,7 @@ public class ClientGameManager : IDisposable
     }
     public void Dispose()
     {
-        networkClient?.Dispose();
+       networkClient?.Dispose();
     }
 }
+ 

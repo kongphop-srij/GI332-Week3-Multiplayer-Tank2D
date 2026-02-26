@@ -32,7 +32,7 @@ public class GameHUD : NetworkBehaviour
 
 
     public void LeaveGame()
-    {
+    {       
 
         if (NetworkManager.Singleton.IsHost)
         {
@@ -47,3 +47,4 @@ public class GameHUD : NetworkBehaviour
         lobbyCodeText.text = newCode.ToString();
     }
 }
+ 

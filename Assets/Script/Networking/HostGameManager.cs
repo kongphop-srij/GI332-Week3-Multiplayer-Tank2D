@@ -17,7 +17,7 @@ using UnityEngine.SceneManagement;
 public class HostGameManager : IDisposable
 {
     private Allocation allocation;
-
+    
     private string lobbyId;
     public string JoinCode { get; private set; }
     public NetworkServer NetworkServer { get; private set; }
@@ -31,7 +31,7 @@ public class HostGameManager : IDisposable
         {
             allocation = await RelayService.Instance.CreateAllocationAsync(MaxConnections);
         }
-        catch (Exception e)
+        catch(Exception e)
         {
             Debug.Log(e);
             return;
@@ -42,12 +42,12 @@ public class HostGameManager : IDisposable
             Debug.Log(JoinCode);
             PlayerPrefs.SetString(JoinCodeKey, JoinCode);
         }
-        catch (Exception e)
+        catch (Exception e) 
         {
             Debug.Log(e);
             return;
         }
-
+        
         UnityTransport transport = NetworkManager.Singleton.GetComponent<UnityTransport>();
 
         RelayServerData relayServerData = allocation.ToRelayServerData("dtls");
@@ -68,7 +68,7 @@ public class HostGameManager : IDisposable
             };
             string playerName = PlayerPrefs.GetString(NameSelector.PlayerNameKey, "Unknown");
             Lobby lobby = await LobbyService.Instance.CreateLobbyAsync(
-                $"{playerName}'s Lobby", MaxConnections, lobbyOptions);
+                $"{playerName}'s Lobby",MaxConnections,lobbyOptions);
             lobbyId = lobby.Id;
 
             HostSingleton.Instance.StartCoroutine(HeartbeatLobby(15));
@@ -103,7 +103,7 @@ public class HostGameManager : IDisposable
     {
         WaitForSecondsRealtime delay = new WaitForSecondsRealtime(waitTimeSeconds);
 
-        while (true)
+        while (true) 
         {
             LobbyService.Instance.SendHeartbeatPingAsync(lobbyId);
             yield return delay;
@@ -150,3 +150,4 @@ public class HostGameManager : IDisposable
         NetworkServer?.Dispose();
     }
 }
+ 
