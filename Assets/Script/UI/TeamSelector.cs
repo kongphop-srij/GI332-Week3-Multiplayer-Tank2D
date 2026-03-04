@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 [System.Serializable]
@@ -52,6 +52,7 @@ public class TeamSelector : MonoBehaviour
     public void SelectTeam(int teamIndex)
     {
         this.teamIndex = teamIndex;
+        PlayerPrefs.SetInt(PlayerTeamKey, teamIndex); // auto-save on select
         HandleTeamChanged();
     }
 
@@ -60,4 +61,4 @@ public class TeamSelector : MonoBehaviour
         PlayerPrefs.SetInt(PlayerTeamKey, teamIndex);
     }
 }
- 
+

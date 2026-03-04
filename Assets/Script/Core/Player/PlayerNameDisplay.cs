@@ -1,16 +1,16 @@
 using UnityEngine;
 using TMPro;
 using Unity.Collections;
+using Unity.Netcode;
 
-public class PlayerNameDisplay : MonoBehaviour
+public class PlayerNameDisplay : NetworkBehaviour
 {
     [SerializeField] private TankPlayer player;
     [SerializeField] private TMP_Text playerNameText;
 
-    private void Start()
+    public override void OnNetworkSpawn()
     {
-        HandlePlayerNameChanged(string.Empty, player.PlayerName.Value);
-
+        HandlePlayerNameChanged(default, player.PlayerName.Value);
         player.PlayerName.OnValueChanged += HandlePlayerNameChanged;
     }
 
@@ -18,8 +18,7 @@ public class PlayerNameDisplay : MonoBehaviour
     {
         playerNameText.text = newName.ToString();
     }
-
-    private void OnDestroy()
+    public override void OnNetworkDespawn()
     {
         player.PlayerName.OnValueChanged -= HandlePlayerNameChanged;
     }
